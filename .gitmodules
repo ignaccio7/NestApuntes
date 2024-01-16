@@ -1,0 +1,3 @@
+[submodule "backend-hocicon"]
+	path = backend-hocicon
+	url = git@gitlab.com:agetic1472403/backend.git

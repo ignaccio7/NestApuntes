@@ -7,8 +7,10 @@ export const connectionSource = new DataSource({
   username: 'postgres',
   password: '260298',
   database: 'my_db',
-  logging: true,
+  logging: false,
   synchronize: false,
-  entities: ['src/**/*.entity.ts'],
-  migrations: ['src/database/migrations/*.ts'],
+  name: 'default',
+  entities: ['src/**/**.entity{.ts,.js}'],
+  migrations: ['src/database/migrations/**/*{.ts,.js}'],
+  subscribers: ['src/subscriber/**/*{.ts,.js}'],
 });

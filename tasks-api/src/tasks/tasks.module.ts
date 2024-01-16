@@ -6,10 +6,8 @@ import { Task } from './entities/task.entity';
 
 @Module({
   // este modulo utilizara la conexion de typeorm y su dominio es bajo estas entidades [Task,Otraentidad,---]
-  imports:[
-    TypeOrmModule.forFeature([Task])
-  ],
+  imports: [TypeOrmModule.forFeature([Task])],
   providers: [TasksService],
-  controllers: [TasksController]
+  controllers: [TasksController],
 })
 export class TasksModule {}

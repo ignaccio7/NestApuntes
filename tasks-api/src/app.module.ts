@@ -14,9 +14,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: false,
       retryDelay: 3000,
-      retryAttempts: 5
+      retryAttempts: 5,
     }),
-    TasksModule
+    TasksModule,
   ],
   controllers: [],
   providers: [],
