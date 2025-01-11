@@ -1,0 +1,13 @@
+# Ignorar node_modules para no copiarlos al contenedor
+node_modules
+dist
+build
+
+# Archivos de control de versiones y configuraciones locales
+.git
+.env
+docker-compose.yml
+Dockerfile
+
+# Ignorar logs
+*.log

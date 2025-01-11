@@ -1,0 +1,77 @@
+para poder trabajar con nest
+npm i -g @nestjs/cli
+para verificar
+nest --version
+para inicializar un proyecto
+nest new project-name
+
+-> para poder crear un modulo
+nest g mo name-module
+-> para poder crear un servicio -> flat para que lo deje de forma lineal y no en una subcarpeta
+nest g s tasks/services/name-service --flat
+-> para crear un controlador
+nest g co tasks/controllers/name-controller --flat
+
+-> En este caso usaremos TypeORM
+nos permite generar la conexion a la base de datos
+con dos patrones ActiveRecord o DataMapper
+a travez del orm generaremos las tablas o entidades y por medio de decoradores lo lograremos
+->con ActiveRecord se podria hacer con 
+    const user = new User()
+    user.firstName="timber"
+    await user.save()
+    .... para buscar
+    const user = await User.find({ id:1 })
+->con DataMapper
+separamos en repositorios
+    const userRepository = connection.getRepository(User)
+    const user = new User()
+    user.firstName="timber"
+    await userRepository.save(user)
+    const user = await userRepository.find({ id:1 })
+-> para instalar
+ npm install --save @nestjs/typeorm typeorm mysql2
+ npm install --save @nestjs/typeorm typeorm pg <- usaremos este
+-> NOTA: MIGRACIONES
+Basicamente es que cada vez que hagamos un cambiemos o ajustemos la entidad
+tendremos un modelo en el tiempo de nuestra base de datos
+Nos serviran para que TypOrm lea las entidades y cree una migracion inicial
+y tambien si lo modificamos o agregamos va poder trackear ese cambio como un sistema de control de versiones
+por medio de otra migracion
+se debe copiar los siguientes scripts al package.json
+------>
+con estos deberia funcionar
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:generate": "npm run typeorm migration:generate -- --dataSource src/database/dataSource.ts",    
+    "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./src/database/dataSource.ts"
+
+para ejecutar la migracion
+------>
+    npm run migration:generate src/database/migrations/init  <-- con esto generamos las MIGRACIONES
+    npm run typeorm:run-migrations <-- con esto generamos las tablas en la base de datos
+
+    cuando alteramos la tabla de tasks
+    npm run migration:generate src/database/migrations/init-dos
+    npm run typeorm:run-migrations
+->
+->
+->
+->
+->
+->
+->
+
+->
+->
+->
+->
+->
+->
+->
+->
+->
+->
+->
+->
+->
+
